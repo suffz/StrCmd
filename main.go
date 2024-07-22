@@ -204,9 +204,13 @@ func ReturnCommandInfo(Value map[string]Command, Format string) (Base string) {
 }
 
 func (D *App) Run() error {
-	for {
-		if err := D.ParseCommand(Listen(true, D.Display)); err != nil {
-			return err
+	if len(os.Args) > 1 {
+		return D.Input(strings.Join(os.Args[1:], " "))
+	} else {
+		for {
+			if err := D.ParseCommand(Listen(true, D.Display)); err != nil {
+				return err
+			}
 		}
 	}
 }
