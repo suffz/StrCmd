@@ -1,3 +1,3 @@
-module github.com/Suffz/StrCmd
+module github.com/suffz/StrCmd
 
 go 1.22
